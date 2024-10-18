@@ -10,6 +10,8 @@
   </div>
 </div>
 
+这是我见过最唐的静态网站托管
+
 # 🤔 这是什么
 
 这是一份适用于游戏 [Minecraft](https://www.minecraft.net/zh-hans) [Java 版](https://zh.minecraft.wiki/w/Java%E7%89%88) 及 [Bedrock (基岩) 版](https://zh.minecraft.wiki/w/%E5%9F%BA%E5%B2%A9%E7%89%88) 的服务器开服教程,在这里,你可以看到由众多用户经验编制而成的各色教程,希望它们可以成为你开服路上的一份趁手资料,也希望你能运营一个不错的服务器——一切皆有可能。动动手指来阅读第一章的内容吧。
