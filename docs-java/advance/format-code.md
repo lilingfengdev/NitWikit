@@ -21,6 +21,8 @@ sidebar_position: 8
 
 你也可以在按住 `Alt` 键的同时，**小键盘** **按顺序** 输入 `167` 以输出 `§` 符号
 
+_(注意: ![image](https://github.com/user-attachments/assets/49472da4-9b50-4fa3-92d1-f14cdb08cbb4) 使用新版时字符对应错误，请使用旧版)_
+
 :::
 
 :::tip
@@ -47,6 +49,6 @@ Icons:
 
 可以去看 [MiniMessage](MiniMessage.md) 部分。
 
-# 参考
+## 参考
 
 - https://zh.minecraft.wiki/w/%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%BB%A3%E7%A0%81

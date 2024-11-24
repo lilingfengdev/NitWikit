@@ -1,5 +1,6 @@
 ---
-sidebar_position: 2
+title: ItemsAdder
+sidebar_position: 1
 ---
 
 # ItemsAdder

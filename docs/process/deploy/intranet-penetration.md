@@ -13,9 +13,111 @@ sidebar_position: 5
 
 内网穿透一抓一大把，比如[樱花内网穿透](https://www.natfrp.com/)和[OpenFrp](https://www.openfrp.net/)
 
-~~因为rz用户比较多，你甚至能用某人用不用樱花来定性判断这人有没有技术~~
+Cloudflare 有内网穿透 Tunnel (无需注册！),MineKube 也有内网穿透 Connect(同样无需注册)，还有 Geyser 官方推荐的 Playit.gg
 
-Linux自建frp参见[此页面](/advance/Linux/frp)
+Linux自建frp参见[此页面](https://nitwikit.yizhan.wiki/advance/Linux/frp)
+
+## Cloudflare Tunnel
+
+~~佛祖的东西肯定得介绍~~
+
+Cloudflare Tunnel 是 CF 下的免费内网穿透
+
+优点：
+
+* 免费，无需注册
+* 自带 n TB高防
+* 不限流
+* 支持 TCP,UDP,RDP,SSH,HTTP
+* SSH 提供 WebSSH,还可以通过 Access 管理
+
+缺点：
+
+* 延迟较大(不可以优选）
+* 客户端需安装 mod 才能进入(仅限 TCP,UDP)
+
+### 安装
+
+在[Github](https://github.com/cloudflare/cloudflared/releases) 找到适合的版本并安装
+
+### 使用
+
+打开cmd,运行以下命令
+
+```shell
+cloudflared tunnel --url tcp://localhost:服务器端口
+```
+
+`tcp`可以换成其他你需要的协议，比如`http`
+
+很快你就能看到
+
+<!--markdownlint-disable line-length-->
+
+```text
+INF Thank you for trying Cloudflare Tunnel. Doing so, without a Cloudflare account, is a quick way to experiment and try it out. However, be aware that these account-less Tunnels have no uptime guarantee. If you intend to use Tunnels in production you should use a pre-created named tunnel by following: https://developers.cloudflare.com/cloudflare-one/connections/connect-apps
+INF Requesting new quick Tunnel on trycloudflare.com...
+INF +--------------------------------------------------------------------------------------------+
+INF |  Your quick Tunnel has been created! Visit it at (it may take some time to be reachable):  |
+INF |  https://corporate-mention-tiles-coordinates.trycloudflare.com                             |
+INF +--------------------------------------------------------------------------------------------+
+```
+
+`*.trycloudflare.com` 就是 CF 给你的免费域名
+
+<!--markdownlint-disable line-length-->
+
+### 客户端
+
+需要安装[Modflared](https://modrinth.com/mod/modflared)
+
+:::tip
+
+作为服主，你还需要绑定到你自己的域名，参考 Modflared 的教程
+
+:::
+
+## Minekube Connect
+
+Minekube 的免费内网穿透,这个组织还有另一个有名作品 Gate
+
+个人感觉比 Cloudflare Tunnel 强很多(比 Cloudflare Spectrum 体验都好)
+
+优点：
+
+* 免费，无需注册
+* 自带高防
+* 不限流
+* 会提供一个免费域名和1个 AnyCast 独立 IPV4
+* 有 Dashboard,可以进行网络分流,管理,黑名单等操作
+
+缺点：
+
+* 延迟非常大
+
+[官网](https://connect.minekube.com/)
+
+## Playit.gg
+
+Playit 的免费内网穿透，需要登录
+
+优点：
+
+* 提供免费版本
+* 无限流量
+* 提供防火墙功能
+* 提供**亚太地区节点**（测试时候路由到了日本）
+* 自带高防
+* 支持 Geyser
+* 支持任意TCP、UDP应用
+
+缺点：
+
+* 免费版本不能绑定自己的域名，只能使用随机域名
+* 延迟略大
+
+Premium 版本一个月3刀(约合人民币27元)，一年30刀
+
 
 ## 可能的问题?
 
@@ -61,9 +163,9 @@ frp 启用 proxy protocol 的方式参考 [Linux自建frp](/advance/Linux/frp)�
 
 对于mc服务器来说，支持 proxy protocol 的软件有：
 
-- bungeecord 系
-- paper 分支(1.18.2)(仅支持v2)
-- [Geyser](../../../Java/process/mobile-player/Geyser/introduction/FAQ#frp搭建内网穿透想显示真实ip怎么办)
-- Spigot端插件 [HAProxyDetector](https://github.com/andylizi/haproxy-detector)
+* bungeecord 系
+* paper 分支(1.18.2)(仅支持v2)
+* [Geyser](https://nitwikit.yizhan.wiki/Java/process/mobile-player/Geyser/introduction/FAQ/#frp%E6%90%AD%E5%BB%BA%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E6%83%B3%E6%98%BE%E7%A4%BA%E7%9C%9F%E5%AE%9Eip%E6%80%8E%E4%B9%88%E5%8A%9E)
+* Spigot端插件 [HAProxyDetector](https://github.com/andylizi/haproxy-detector)
 
 等。BDS 服务器目前不支持此协议。

@@ -19,7 +19,7 @@ JAVA 版的资源包分发与基岩版不同，它是云分发的，提供给客
 
 不需要登陆账号，不需要点击链接打开网页才下载
 
-# 分发
+## 分发
 
 ## server.properties
 
@@ -65,7 +65,7 @@ https://itemsadder.devs.beer/v/chinese/plugin-usage/resourcepack-hosting
 
 看配置文件
 
-# 托管
+## 托管
 
 以下均为ia文档中所说的 第三方平台托管(external-host)
 
@@ -73,11 +73,15 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <Tabs queryString="store">
-<TabItem value="r2" label="Cloudflare R2">
+<TabItem value="cf" label="Cloudflare">
 
-官网: https://cloudflare.com
+官网: https://cloudflare.com 
 
-著名赛博佛祖，免费的 Cloudflare R2 提供 10 GB 的免费空间，只不过需要**绑定银行卡或者 PayPal**(不会花钱)，非常推荐
+提供两种存储方式,分别是 R2 和 KV
+
+### Cloudflare R2
+
+免费的 Cloudflare R2 提供 10 GB 的免费空间，只不过需要**绑定银行卡或者 PayPal**(不会花钱)，非常推荐
 
 - 使用方法:创建一个 R2 存储桶，名称自选，位置选择`亚太地区 (APAC)`(速度最快)，默认存储类一定要选择`标准`，创建好后直接上传资源包就可以了(可以设置自定义域)
 
@@ -96,6 +100,46 @@ import TabItem from '@theme/TabItem';
 - 需要绑定银行卡或者 PayPal
 
 (笨蛋文档官方资源分发也是 R2)
+
+### Cloudflare KV
+
+CF Worker 的一个附属品,用来当可持久存储的,用来当资源包分发也是无敌了
+
+教程: https://github.com/SharzyL/pastebin-worker
+
+**优势**：
+
+- 价格: 1 GB 以内免费
+- 不需要绑定银行卡或者 PayPal
+
+**劣势**：
+
+- 单个文件最大 25 MB
+- 一天只能访问 10 万次
+
+</TabItem>
+<TabItem value="tebi" label="Tebi">
+
+官网: https://tebi.io
+
+一个非常好的对象存储,提供 50 GB 的免费空间(当然,由于多存储点,最大只能获得 25 GB)
+
+需要绑定信用卡才能使用(但不校验,可以绕过)
+
+创建时推荐选择新加坡,美西,空间需求不大可以德国,新加坡,美东和美西四个都选
+
+**优势**：
+
+- 免费空间多
+- 速度给力
+- 稳定
+
+**劣势**：
+
+- 需要绑定银行卡(可以绕过)
+- 有流量限制(250 GB)
+
+~~那不就没缺点了~~
 
 </TabItem>
 <TabItem value="github" label="GitHub">
@@ -189,6 +233,7 @@ ia的文档教了如何使用
 
 - 123pan 要钱
 - 小的直链网盘容易跑路，不稳定
+- 速度堪忧
 
 </TabItem>
 <TabItem value="self" label="自托管">
@@ -206,12 +251,14 @@ ia的文档教了如何使用
 - 占用自己的宽带
 - IA 自托管极为脑瘫
 
+如果不想使用 IA 脑瘫自托管,你也可以使用像[CUFS](http://iscute.cn/chfs) 这样的外置自托管程序
+
 </TabItem>
 </Tabs>
 
-# FAQ
+## FAQ
 
-## 我想让客户端不要下载重复的资源包可以吗？
+### 我想让客户端不要下载重复的资源包可以吗？
 
 当然可以，找到以下配置
 
